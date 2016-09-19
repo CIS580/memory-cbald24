@@ -6,8 +6,8 @@ const Game = require('./game');
 /* Global variables */
 var canvas = document.getElementById('screen');
 var game = new Game(canvas, update, render);
-var spritesheet = new Image();
-spritesheet.src = encodeURI('assets/ animals.png')
+var image = new Image();
+image = encodeURI('assets/ animals.png')
 // We have 9 pairs of possible cards that are about 212px square
 var cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 var board = [];
@@ -67,7 +67,9 @@ function render(elapsedTime, ctx) {
     {
       var card = board[(y*6) + x];
       if (card.flip) {
-
+          ctx.drawImage(image, 
+          card.card, 0, 212, 212,
+          x* 165 +3, y * 165 + 3, 160, 160);
       } else
       {
         ctx.fillStyle = "#3333ff";
